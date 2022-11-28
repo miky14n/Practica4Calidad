@@ -1,6 +1,6 @@
 Given(/^Estoy en la página de Americas Together$/) do
   visit('https://testing-start.web.app/login')
-  find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div:nth-child(2) > div.MuiGrid-root.jss21 > div > form > div > div:nth-child(2) > div > input').set("coreteam@gmail.com")
+  find(:xpath, '//*[@id="root"]/div[2]/div[1]/div/div[2]/div[2]/div/form/div/div[1]/div/input').set("coreteam@gmail.com")
   find(:xpath, '//*[@id="root"]/div[2]/div[1]/div/div[2]/div[2]/div/form/div/div[2]/div/input').set("123456")
   find(:xpath, '//*[@id="root"]/div[2]/div[1]/div/div[2]/div[2]/div/form/div/button/span[1]').click
 end
