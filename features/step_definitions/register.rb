@@ -29,6 +29,13 @@ When('I click the {string} button') do |string|
   find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div.jss15 > button > span.MuiButton-label').click()
 end
 
+Then('The button {string} should be disabled') do |string|
+  #find(:field, 'CREA TU CUENTA DE START', disabled: true)
+  #find(:button, type: 'submit').child.value
+  #expect(page).to have_button("CREA TU CUENTA DE START", disabled: true)
+  find(:button, disabled: true, type: 'submit')
+end
+
 Then('I will see an alert message which says {string}') do |string|
   find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(3) > div > div > div.MuiAlert-message')
 end
