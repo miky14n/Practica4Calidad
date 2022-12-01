@@ -1,6 +1,9 @@
-Feature: Show how to work with tables
+Feature: Crear usuarios
+  Con la necesidad de crear usuarios en la pagina de Start Americas Together
+  Como un usuario nuevo
+  Yo quiero registrarme para acceder a los servicios de la aplicacion
 
-  Scenario: Validate we can use the button to register when all the data is inserted and it is valid
+  Scenario: Validate we can register when all data inserted is valid
     Given I am in register page
     When I enter the following data
       | Nombre:               | Juan               |
@@ -93,6 +96,6 @@ Feature: Show how to work with tables
       | Numero de celular:    | (+591)7894561      |
       | Contraseña:           | securedPass123     |
       | Confirmar contraseña: | securedPass123     |
-    And I add "!" in Nombre field
+    And I add "!" in "Nombre" field
     And I click the "CREA TU CUENTA DE START" button
     Then I will see an alert that says "Nombre no valido"

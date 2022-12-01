@@ -37,7 +37,7 @@ Then('I will not see an alert message') do
   expect('https://testing-start.web.app/register').not_to have_selector '#root > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(3) > div > div > div.MuiAlert-message'
 end
 
-When('I add {string} in Nombre field') do |string|
+When('I add {string} in {field} field') do |string, field|
   pending # Write code here that turns the phrase above into concrete actions
 end
 
