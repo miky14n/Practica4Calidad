@@ -1,13 +1,26 @@
-#Given Pagina de inicio de sesision 
-Given(/^Pagina de inicio de sesision$/) do
+#Given Pagina de inicio de sesión 
+Given(/^Pagina de inicio de sesión$/) do
   page.driver.browser.manage.window.maximize
-  visit ('/')
-  sleep 2
+  visit ('')
+  
 end
-#When Iniciamos sesision con el usuario: "voluntario@gmail.com" y password: "123456"
-When(/^Iniciamos sesision con el usuario:"([^"]*)"$ y password: "([^"]*)"$/) do |usuario| 
-  fill_in('email',:with => usuario)
+
+When('Iniciamos sesión con el usuario {string} y password {string}') do |string, string2|  
+  fill_in 'email', :with => string
+  fill_in 'password', :with => string2
 end
-#And preciono el boton de iniciar sesision
-#And preciono el boton de de "Eventos" 
-#Then Se muestran los eventos dispobles
+
+When('preciono el boton de inio de sesion {string}') do |string|
+  click_button(string)
+  
+end
+
+When('preciono el boton de de Evntos {string}') do |string|
+  sleep(2)
+  click_button(string)
+end
+
+Then('Se muestran los eventos dispobles') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
