@@ -6,9 +6,9 @@ Feature: Ver pagina los eventos
   Scenario: Ver lista de de eventos
     Given Pagina de inicio de sesión 
     When Iniciamos sesión con el usuario "voluntario@gmail.com" y password "123456"
-    And preciono el boton de inio de sesion "Iniciar Sesión"
+    And preciono el boton de inicio de sesion "Iniciar Sesión"
     And preciono el boton de de Evntos "Eventos" 
-    Then Se muestran los eventos dispobles
+    Then Se muestran los eventos dispobles 
 
 
 

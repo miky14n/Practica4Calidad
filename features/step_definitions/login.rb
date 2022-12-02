@@ -20,7 +20,16 @@ When('preciono el boton de de Evntos {string}') do |string|
   click_button(string)
 end
 
-Then('Se muestran los eventos dispobles ') do 
-  find("MuiPaper-root MuiCard-root jss23 MuiPaper-outlined MuiPaper-rounded").visible?
+Then('Se muestran el boton de crear evento {string}') do |string|
+  find(string).visible?
 end
 
+When('preciono el boton de de Proyectos {string}') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
+end
+Then('Se muestran el boton de crear proyecto {string}') do |string|
+  find(string).visible?
+end
+Then('Se muestra la pagina de inicio y se ve el boton de Cuenta {string}') do |string|
+  find(string).visible?
+end
