@@ -17,29 +17,18 @@ Feature: Crear usuarios
     When I click the "CREA TU CUENTA DE START" button
     Then I will see an alert message which says "Se ha enviado un correo de confirmación al email: adsdasada@gmail.com"
 
-  Scenario: Validate I can not create an account when Nombre field is not set
-    When I left the field "Nombre" empty
+  Scenario Outline: Validate I can not create an account when Nombre field is not set
+    When I left the field <Field> empty
     Then The button "CREA TU CUENTA DE START" should be disabled
 
-  Scenario: Validate we can not use the button to register when Apellido field is empty
-    When I left the field "Apellido" empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
-
-  Scenario: Validate we can not use the button to register when Correo field is empty
-    When I left the field "Correo" empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
-
-  Scenario: Validate we can not use the button to register when Numero_celular field is empty
-    When I left the field "Numero de celular" empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
-
-  Scenario: Validate we can not use the button to register when Contraseña field is empty
-    When I left the field "Contraseña" empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
-
-  Scenario: Validate we can not use the button to register when Confirmar_contraseña field is empty
-    When I left the field "Confirmar contraseña" empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
+    Examples: 
+      | Field                  |
+      | "Nombre"               |
+      | "Apellido"             |
+      | "Correo"               |
+      | "Numero de celular"    |
+      | "Contraseña"           |
+      | "Confirmar contraseña" |
 
   Scenario: Validate we can not use the button to register when Nombre field is not valid (It has special characters)
     Given I am in register page
