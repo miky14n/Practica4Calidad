@@ -51,3 +51,23 @@ end
 Then('I will see an alert that says {string}') do |string|
   pending # Write code here that turns the phrase above into concrete actions
 end
+
+When('I left the field {string} empty') do |string|
+  value = ""
+  field = ""
+  case string
+  when "Nombre"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div.jss11 > div:nth-child(1) > div > input')
+  when "Apellido"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div.jss11 > div:nth-child(2) > div > input')
+  when "Correo"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(3) > div > input')
+  when "Numero de celular"
+    field = find(:css, '#phone-input').set(value)
+  when "Contraseña"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(5) > div > input')
+  when "Confirmar contraseña"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(6) > div > input')
+  end
+  field.value.length.times { field.send_keys [:backspace] }
+end
