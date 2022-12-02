@@ -4,7 +4,7 @@ After do
 end
 
 
-Before '@maximize' do
+Before do
   page.driver.browser.manage.window.maximize
 end
 

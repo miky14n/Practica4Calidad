@@ -14,7 +14,7 @@ Feature: Crear usuarios
       | Confirmar contraseña: | securedPass123     |
 
   Scenario: Puedo crear una cuenta cuando ingreso datos validos
-    When Clickeo el boton de "CREA TU CUENTA DE START"
+    When Hago click el boton de "CREA TU CUENTA DE START"
     Then Vere un mensaje de alerta que dice "Se ha enviado un correo de confirmación al email: testMail@gmail.com"
 
   Scenario Outline: No puedo crear una cuenta cuando dejo un campo del formulario vacio
@@ -30,15 +30,15 @@ Feature: Crear usuarios
       | "Contraseña"           |
       | "Confirmar contraseña" |
 
-  Scenario Outline: No puedo crear una cuenta cuando un campo tiene datos invalidos
+  Scenario Outline: No puedo crear una cuenta cuando un campo tiene un caracter invalido
     When Agrego el caracter invalido <Character Added> en el campo <Field> de tal manera que se ve <Value>
     Then El boton "CREA TU CUENTA DE START" deberia estar deshabilitado
+    And Podre ver un mensaje de error justo debajo del campo que diga <Field> no valido
 
     Examples: 
-      | Field               | Value                 | Character Added |
-      | "Nombre"            | "Juan!"               | "!"             |
-      | "Apellido"          | "Perez!"              | "!"             |
-      | "Correo"            | "test>Mail@gmail.com" | ">"             |
-      | "Correo"            | "testMail@gm!ail.com" | "!"             |
-      | "Correo"            | "testMail@gmail.co!m" | "!"             |
-      | "Numero de celular" | "(+591)7 5989769"     | "(Espacio)"     |
+      | Field      | Value                 | Character Added |
+      | "Nombre"   | "Juan!"               | "!"             |
+      | "Apellido" | "Perez!"              | "!"             |
+      | "Correo"   | "test>Mail@gmail.com" | ">"             |
+      | "Correo"   | "testMail@gm!ail.com" | "!"             |
+      | "Correo"   | "testMail@gmail.co!m" | "!"             |
