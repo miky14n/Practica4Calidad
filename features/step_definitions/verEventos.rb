@@ -1,26 +1,20 @@
 #Given Pagina de inicio de sesión 
-Given(/^Pagina de inicio de sesión$/) do
+Given(/^en la página de inicio de sesión$/) do
   page.driver.browser.manage.window.maximize
   visit ('')
-  
 end
 
-When('Iniciamos sesión con el usuario {string} y password {string}') do |string, string2|  
-  fill_in 'email', :with => string
-  fill_in 'password', :with => string2
+When('iniciamos sesión con el correo: {string} y contraseña: {string}') do |email, password|  
+  fill_in 'email', :with => email
+  fill_in 'password', :with => password
 end
 
-When('preciono el boton de inio de sesion {string}') do |string|
-  click_button(string)
-  
-end
-
-When('preciono el boton de de Evntos {string}') do |string|
+When('presiono el botón de {string}') do |string|
   sleep(2)
   click_button(string)
 end
 
-Then('Se muestran los eventos dispobles ') do 
+Then('se muestran los eventos disponibles') do 
   find("MuiPaper-root MuiCard-root jss23 MuiPaper-outlined MuiPaper-rounded").visible?
 end
 
