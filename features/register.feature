@@ -30,7 +30,15 @@ Feature: Crear usuarios
       | "Contraseña"           |
       | "Confirmar contraseña" |
 
-  Scenario: Validate we can not use the button to register when Nombre field is not valid (It has special characters)
-    When I add "!" in "Nombre" field
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will see an alert that says "Nombre no valido"
+  Scenario Outline: No puedo crear una cuenta cuando un campo tiene datos invalidos
+    When Agrego el caracter invalido <Character Added> en el campo <Field> de tal manera que se ve <Value>
+    Then El boton "CREA TU CUENTA DE START" deberia estar deshabilitado
+
+    Examples: 
+      | Field               | Value                 | Character Added |
+      | "Nombre"            | "Juan!"               | "!"             |
+      | "Apellido"          | "Perez!"              | "!"             |
+      | "Correo"            | "test>Mail@gmail.com" | ">"             |
+      | "Correo"            | "testMail@gm!ail.com" | "!"             |
+      | "Correo"            | "testMail@gmail.co!m" | "!"             |
+      | "Numero de celular" | "(+591)7 5989769"     | "(Espacio)"     |
