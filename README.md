@@ -8,7 +8,7 @@ Para poder ejecutar el proyecto necesitas los siguientes requerimientos instalad
 
 - Ruby
 - Selenium Driver
-- Cucunber
+- Cucumber
 - Capybara
 
 ### Instalaciones

@@ -20,7 +20,7 @@ When('preciono el boton de de Evntos {string}') do |string|
   click_button(string)
 end
 
-Then('Se muestran los eventos dispobles {string}') do |string|
-  find(string).visible?
+Then('Se muestran los eventos dispobles ') do 
+  find("MuiPaper-root MuiCard-root jss23 MuiPaper-outlined MuiPaper-rounded").visible?
 end
 

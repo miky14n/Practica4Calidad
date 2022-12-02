@@ -1,4 +1,4 @@
-Feature: Comprovar el inico de sesion con los diferentes roles
+Feature: Comprobar el inico de sesion con los diferentes roles
   En la pagina de iniciar sesion 
   Como usuario 
   Quiero iniciar sesion
