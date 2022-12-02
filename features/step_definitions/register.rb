@@ -2,7 +2,6 @@ require 'selenium-webdriver'
 
 Given('Estoy en la vista de crear cuenta') do
   visit('https://testing-start.web.app/register')
-  puts "Register page lauched successfully"
 end
 
 When('Ingreso los siguientes datos al formulario') do |table|
@@ -37,16 +36,7 @@ Then('Vere un mensaje de alerta que dice {string}') do |string|
   find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(3) > div > div > div.MuiAlert-message')
 end
 
-When('I add {string} in {field} field') do |string, field|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Then('I will see an alert that says {string}') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
 When('Dejo el campo {string} vacio') do |string|
-  value = ""
   field = ""
   case string
   when "Nombre"
@@ -56,11 +46,30 @@ When('Dejo el campo {string} vacio') do |string|
   when "Correo"
     field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(3) > div > input')
   when "Numero de celular"
-    field = find(:css, '#phone-input').set(value)
+    field = find(:css, '#phone-input')
   when "Contraseña"
     field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(5) > div > input')
   when "Confirmar contraseña"
     field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(6) > div > input')
   end
   field.value.length.times { field.send_keys [:backspace] }
+end
+
+When('Agrego el caracter invalido {string} en el campo {string} de tal manera que se ve {string}') do |string, string2, string3|
+  field = ""
+  case string2
+  when "Nombre"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div.jss11 > div:nth-child(1) > div > input').set(string3)
+  when "Apellido"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div.jss11 > div:nth-child(2) > div > input').set(string3)
+  when "Correo"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(3) > div > input').set(string3)
+  when "Numero de celular"
+    field = find(:css, '#phone-input').set()
+  when "Contraseña"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(5) > div > input').set(string3)
+  when "Confirmar contraseña"
+    field = find(:css, '#root > div:nth-child(2) > div:nth-child(2) > div > div > div.MuiGrid-root > div.MuiPaper-root.MuiCard-root.jss13.MuiPaper-elevation1.MuiPaper-rounded > form > div:nth-child(6) > div > input').set(string3)
+  end
+  puts("Caracter '" + string + "' añadido a " + string2)
 end
