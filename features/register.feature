@@ -1,98 +1,36 @@
-Feature: Show how to work with tables
+Feature: Crear usuarios
+  Con la necesidad de crear usuarios en la pagina de Start Americas Together
+  Como un usuario nuevo
+  Yo quiero registrarme para acceder a los servicios de la aplicacion
 
-  Scenario: Validate we can use the button to register when all the data is inserted and it is valid
-    Given I am in register page
-    When I enter the following data
+  Background: Ingreso datos al formulario de Crea Tu Cuenta
+    Given Estoy en la vista de crear cuenta
+    When Ingreso los siguientes datos al formulario
       | Nombre:               | Juan               |
       | Apellido:             | Perez              |
       | Correo:               | testMail@gmail.com |
       | Numero de celular:    | (+591)7894561      |
       | Contraseña:           | securedPass123     |
       | Confirmar contraseña: | securedPass123     |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will see an alert message which says "Se ha enviado un correo de confirmación al email: adsdasada@gmail.com"
 
-  Scenario: Validate we can not use the button to register when Name field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               |                    |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: | securedPass123     |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
+  Scenario: Puedo crear una cuenta cuando ingreso datos validos
+    When Clickeo el boton de "CREA TU CUENTA DE START"
+    Then Vere un mensaje de alerta que dice "Se ha enviado un correo de confirmación al email: testMail@gmail.com"
 
-  Scenario: Validate we can not use the button to register when Apellido field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             |                    |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: | securedPass123     |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
+  Scenario Outline: No puedo crear una cuenta cuando dejo un campo del formulario vacio
+    When Dejo el campo <Field> vacio
+    Then El boton "CREA TU CUENTA DE START" deberia estar deshabilitado
 
-  Scenario: Validate we can not use the button to register when Correo field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan           |
-      | Apellido:             | Perez          |
-      | Correo:               |                |
-      | Numero de celular:    | (+591)7894561  |
-      | Contraseña:           | securedPass123 |
-      | Confirmar contraseña: | securedPass123 |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
-
-  Scenario: Validate we can not use the button to register when Numero_celular field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    |                    |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: | securedPass123     |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
-
-  Scenario: Validate we can not use the button to register when Contraseña field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           |                    |
-      | Confirmar contraseña: | securedPass123     |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
-
-  Scenario: Validate we can not use the button to register when Confirmar_contraseña field is empty
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: |                    |
-    And I click the "CREA TU CUENTA DE START" button
-    Then I will not see an alert message
+    Examples: 
+      | Field                  |
+      | "Nombre"               |
+      | "Apellido"             |
+      | "Correo"               |
+      | "Numero de celular"    |
+      | "Contraseña"           |
+      | "Confirmar contraseña" |
 
   Scenario: Validate we can not use the button to register when Nombre field is not valid (It has special characters)
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: | securedPass123     |
-    And I add "!" in Nombre field
+    When I add "!" in "Nombre" field
     And I click the "CREA TU CUENTA DE START" button
     Then I will see an alert that says "Nombre no valido"
