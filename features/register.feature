@@ -3,9 +3,9 @@ Feature: Crear usuarios
   Como un usuario nuevo
   Yo quiero registrarme para acceder a los servicios de la aplicacion
 
-  Background: I enter data to register page
-    Given I am in register page
-    When I enter the following data
+  Background: Ingreso datos al formulario de Crea Tu Cuenta
+    Given Estoy en la vista de crear cuenta
+    When Ingreso los siguientes datos al formulario
       | Nombre:               | Juan               |
       | Apellido:             | Perez              |
       | Correo:               | testMail@gmail.com |
@@ -13,13 +13,13 @@ Feature: Crear usuarios
       | Contraseña:           | securedPass123     |
       | Confirmar contraseña: | securedPass123     |
 
-  Scenario: Validate I can register when all data inserted is valid
-    When I click the "CREA TU CUENTA DE START" button
-    Then I will see an alert message which says "Se ha enviado un correo de confirmación al email: adsdasada@gmail.com"
+  Scenario: Puedo crear una cuenta cuando ingreso datos validos
+    When Clickeo el boton de "CREA TU CUENTA DE START"
+    Then Vere un mensaje de alerta que dice "Se ha enviado un correo de confirmación al email: testMail@gmail.com"
 
-  Scenario Outline: Validate I can not create an account when Nombre field is not set
-    When I left the field <Field> empty
-    Then The button "CREA TU CUENTA DE START" should be disabled
+  Scenario Outline: No puedo crear una cuenta cuando dejo un campo del formulario vacio
+    When Dejo el campo <Field> vacio
+    Then El boton "CREA TU CUENTA DE START" deberia estar deshabilitado
 
     Examples: 
       | Field                  |
@@ -31,14 +31,6 @@ Feature: Crear usuarios
       | "Confirmar contraseña" |
 
   Scenario: Validate we can not use the button to register when Nombre field is not valid (It has special characters)
-    Given I am in register page
-    When I enter the following data
-      | Nombre:               | Juan               |
-      | Apellido:             | Perez              |
-      | Correo:               | testMail@gmail.com |
-      | Numero de celular:    | (+591)7894561      |
-      | Contraseña:           | securedPass123     |
-      | Confirmar contraseña: | securedPass123     |
-    And I add "!" in "Nombre" field
+    When I add "!" in "Nombre" field
     And I click the "CREA TU CUENTA DE START" button
     Then I will see an alert that says "Nombre no valido"
