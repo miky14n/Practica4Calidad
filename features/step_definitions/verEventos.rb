@@ -20,7 +20,7 @@ When('preciono el boton de de Evntos {string}') do |string|
   click_button(string)
 end
 
-Then('Se muestran los eventos dispobles') do
-  pending # Write code here that turns the phrase above into concrete actions
+Then('Se muestran los eventos dispobles {string}') do |string|
+  find(string).visible?
 end
 

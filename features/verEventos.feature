@@ -8,7 +8,7 @@ Feature: Ver pagina los eventos
     When Iniciamos sesión con el usuario "voluntario@gmail.com" y password "123456"
     And preciono el boton de inio de sesion "Iniciar Sesión"
     And preciono el boton de de Evntos "Eventos" 
-    Then Se muestran los eventos dispobles
+    Then Se muestran los eventos dispobles "MuiPaper-root MuiCard-root jss23 MuiPaper-outlined MuiPaper-rounded"
 
 
 

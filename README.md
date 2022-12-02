@@ -7,9 +7,21 @@ Este repositorio contiene pruebas de "Smoke" de la aplicacion (https://testing-s
 Para poder ejecutar el proyecto necesitas los siguientes requerimientos instalados en un entorno windows 10 o 11:
 
 - Ruby
+- Selenium Driver
 - Cucunber
 - Capybara
-- Selenium Driver
+
+### Instalaciones
+
+- [Ruby] (https://rubyinstaller.org/downloads/)
+- [Selenium Driver] (https://chromedriver.chromium.org/downloads)
+- Gemas requeridas de Ruby  
+  • gem install cucumber
+  • gem install capybara
+  • gem install selenium-webdriver
+  • gem install selenium
+  • gem install rspec
+  • gem install capybara-screenshot
 
 ### Equipo
 
