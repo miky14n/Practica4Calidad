@@ -4,12 +4,8 @@ let titleSelector = 'body > div:nth-child(5) > table > tbody > tr > td:nth-child
 
 class UnderConstructionPage{
   constructor(){
-    this.title = Selector(titleSelector).withText('Login Successfully')
-    this.signOffButton = Selector('body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(1) > a')
-  }
-  async signOff(){
-    await Selector(this.signOffButton.withText('SIGN-OFF')).exists
-    await t.click(this.signOffButton)
+    this.title = Selector(titleSelector)
+    this.explanationText = Selector('body > div:nth-child(5) > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td > table > tbody > tr:nth-child(1) > td:nth-child(2) > table > tbody > tr:nth-child(3) > td > p > font:nth-child(1) > b > font:nth-child(1)')
   }
 }
 
