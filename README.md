@@ -23,8 +23,8 @@ Para poder ejecutar el proyecto necesitas los siguientes requerimientos instalad
 
 ### Instalaciones
 
-- [Ruby] (https://rubyinstaller.org/downloads/)
-- [Selenium Driver] (https://chromedriver.chromium.org/downloads)
+- [Ruby](https://rubyinstaller.org/downloads/)
+- [Selenium Driver](https://chromedriver.chromium.org/downloads)
 - Gemas requeridas de Ruby  
   • gem install cucumber
   • gem install capybara
